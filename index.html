@@ -1,1 +1,597 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10110f">
+    <meta name="description" content="A digital art portfolio featuring glitch art, logos, memes, 3D work, and net-art.">
+    <title>Brandon Tran Art-74 — Digital Art Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      :root {
+        --ink: #10110f;
+        --paper: #f1f0e9;
+        --lime: #d6ff38;
+        --muted: #a6a79e;
+        --line: rgba(241, 240, 233, .18);
+      }
 
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5.5rem;
+      }
+
+      body {
+        background: var(--ink);
+        color: var(--paper);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-nav {
+        background: rgba(16, 17, 15, .94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(12px);
+      }
+
+      .navbar-brand,
+      .brand-mark {
+        font-weight: 900;
+        letter-spacing: -.08em;
+      }
+
+      .navbar-brand {
+        font-size: 1.55rem;
+      }
+
+      .navbar-brand span {
+        color: var(--lime);
+      }
+
+      .nav-link {
+        color: var(--muted);
+        font-size: .78rem;
+        font-weight: 700;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus {
+        color: var(--lime);
+      }
+
+      .navbar-toggler {
+        border-color: var(--line);
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: 0 0 0 .2rem rgba(214, 255, 56, .25);
+      }
+
+      .hero {
+        min-height: min(760px, calc(100vh - 65px));
+        padding-top: 6rem;
+        padding-bottom: 5rem;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero::before {
+        color: rgba(241, 240, 233, .035);
+        content: "ART";
+        font-size: clamp(14rem, 34vw, 35rem);
+        font-weight: 900;
+        letter-spacing: -.12em;
+        line-height: .8;
+        position: absolute;
+        right: -3rem;
+        top: 3rem;
+        z-index: -1;
+      }
+
+      .eyebrow {
+        color: var(--lime);
+        font-size: .75rem;
+        font-weight: 700;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+      }
+
+      .hero-title {
+        font-size: clamp(3.6rem, 9.3vw, 8.7rem);
+        font-weight: 900;
+        letter-spacing: -.095em;
+        line-height: .83;
+        margin: 1.5rem 0;
+        max-width: 900px;
+      }
+
+      .hero-title em {
+        color: var(--lime);
+        font-style: normal;
+      }
+
+      .hero-copy {
+        color: var(--muted);
+        font-size: clamp(1rem, 1.6vw, 1.2rem);
+        line-height: 1.7;
+        max-width: 440px;
+      }
+
+      .text-link {
+        align-items: center;
+        border-bottom: 1px solid var(--lime);
+        color: var(--lime);
+        display: inline-flex;
+        font-size: .8rem;
+        font-weight: 700;
+        gap: .7rem;
+        letter-spacing: .08em;
+        padding: 0 0 .5rem;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .text-link:hover {
+        color: var(--paper);
+        border-color: var(--paper);
+      }
+
+      .hero-art-wrap {
+        margin-top: 3rem;
+        position: relative;
+      }
+
+      .hero-art {
+        aspect-ratio: 1 / .82;
+        border: 1px solid var(--line);
+        display: block;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .hero-art-button,
+      .art-image-button {
+        background: transparent;
+        border: 0;
+        cursor: zoom-in;
+        display: block;
+        padding: 0;
+        width: 100%;
+      }
+
+      .hero-art-button:focus-visible,
+      .art-image-button:focus-visible {
+        outline: 2px solid var(--lime);
+        outline-offset: 4px;
+      }
+
+      .image-sticker {
+        background: var(--lime);
+        color: var(--ink);
+        font-size: .72rem;
+        font-weight: 800;
+        letter-spacing: .08em;
+        padding: .8rem 1rem;
+        pointer-events: none;
+        position: absolute;
+        right: -.7rem;
+        text-transform: uppercase;
+        top: 1rem;
+        transform: rotate(4deg);
+      }
+
+      .section-heading {
+        align-items: end;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+      }
+
+      .section-heading h2 {
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        font-weight: 900;
+        letter-spacing: -.08em;
+        line-height: .9;
+        margin: 0;
+      }
+
+      .section-heading p {
+        color: var(--muted);
+        font-size: .85rem;
+        margin: 0 0 .2rem;
+      }
+
+      .work-section {
+        padding-bottom: 5.5rem;
+        scroll-margin-top: 5rem;
+      }
+
+      .art-card {
+        color: inherit;
+        display: block;
+        height: 100%;
+        text-decoration: none;
+      }
+
+      .art-card img {
+        aspect-ratio: 4 / 3;
+        background: #262722;
+        display: block;
+        object-fit: cover;
+        transition: transform .35s ease, filter .35s ease;
+        width: 100%;
+      }
+
+      .art-image-button:hover img,
+      .art-image-button:focus-visible img {
+        filter: saturate(1.12);
+        transform: scale(1.025);
+      }
+
+      .art-image-frame {
+        overflow: hidden;
+      }
+
+      .image-lightbox .modal-content {
+        background: #10110f;
+        border: 1px solid var(--line);
+        color: var(--paper);
+      }
+
+      .image-lightbox .modal-body {
+        padding: .5rem;
+      }
+
+      .image-lightbox img {
+        display: block;
+        max-height: 80vh;
+        object-fit: contain;
+        width: 100%;
+      }
+
+      .image-lightbox .modal-caption {
+        color: var(--paper);
+        font-size: .85rem;
+        font-weight: 700;
+        padding: .75rem .5rem 0;
+      }
+
+      .image-lightbox .modal-description {
+        color: var(--muted);
+        font-size: .85rem;
+        line-height: 1.6;
+        padding: .25rem .5rem .25rem;
+      }
+
+      .art-card-title {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: .9rem 0 .2rem;
+      }
+
+      .art-card-label {
+        color: var(--muted);
+        font-size: .72rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+
+      .art-card-link {
+        color: var(--lime);
+        display: inline-block;
+        font-size: .8rem;
+        font-weight: 700;
+        margin-top: .5rem;
+        text-decoration: none;
+      }
+
+      .art-card-link:hover,
+      .art-card-link:focus-visible {
+        text-decoration: underline;
+      }
+
+      .about-section {
+        background: var(--paper);
+        color: var(--ink);
+        padding: clamp(4rem, 9vw, 8rem) 0;
+        scroll-margin-top: 4rem;
+      }
+
+      .about-title {
+        font-size: clamp(3.5rem, 8vw, 7rem);
+        font-weight: 900;
+        letter-spacing: -.1em;
+        line-height: .83;
+      }
+
+      .about-copy {
+        font-size: clamp(1.05rem, 2vw, 1.35rem);
+        line-height: 1.65;
+        max-width: 600px;
+      }
+
+      .about-note {
+        border-top: 1px solid rgba(16, 17, 15, .2);
+        font-size: .8rem;
+        margin-top: 2rem;
+        padding-top: 1rem;
+      }
+
+      footer {
+        color: var(--muted);
+        font-size: .78rem;
+        padding: 1.5rem 0;
+      }
+
+      footer a {
+        color: var(--lime);
+        text-decoration: none;
+      }
+
+      @media (min-width: 992px) {
+        .hero-art-wrap {
+          margin-top: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: .01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark site-nav sticky-top" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand" href="#home" aria-label="Brandon Tran Art-74 home">ART<span>-74</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNav" aria-controls="portfolioNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="portfolioNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 py-3 py-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#glitch-art">Glitch Art</a></li>
+            <li class="nav-item"><a class="nav-link" href="#logo">Logo</a></li>
+            <li class="nav-item"><a class="nav-link" href="#meme">Meme</a></li>
+            <li class="nav-item"><a class="nav-link" href="#3d-work">3D Work</a></li>
+            <li class="nav-item"><a class="nav-link" href="#net-art">Net-Art</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+              <p class="eyebrow mb-0">Digital art / visual experiments</p>
+              <h1 class="hero-title">Make it<br>feel <em>different.</em></h1>
+              <p class="hero-copy">A collection of playful pixels, altered images, bold identities, and strange little worlds.</p>
+              <a class="text-link mt-3" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="col-lg-5">
+              <div class="hero-art-wrap">
+                <button class="hero-art-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="A bison photograph broken apart by vivid digital interference, turning a familiar landscape into a study of disrupted signals." aria-label="View bison artwork larger">
+                  <img class="hero-art" src="images/Glitched_Bison-Final.png" alt="A bison photograph transformed with colorful digital glitch interference">
+                </button>
+                <span class="image-sticker">Reality, remixed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container py-5" id="work">
+        <section class="work-section" id="glitch-art" aria-labelledby="glitch-heading">
+          <div class="section-heading">
+            <h2 id="glitch-heading">Glitch Art</h2>
+            <p>01 / Signal lost, image found</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="A bison photograph broken apart by vivid digital interference, turning a familiar landscape into a study of disrupted signals." aria-label="View Bison / signal study larger"><img src="images/Glitched_Bison-Final.png" alt="Bison in a field disrupted by colorful horizontal glitch lines" loading="lazy"></button></div>
+                <h3 class="art-card-title">Bison / signal study</h3>
+                <p class="art-card-label mb-0">Image manipulation</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="work-section" id="logo" aria-labelledby="logo-heading">
+          <div class="section-heading">
+            <h2 id="logo-heading">Logo</h2>
+            <p>02 / Marks with a little character</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="A bold gaming identity built around bright color and energetic lettering, designed to feel lively and instantly recognizable." aria-label="View Splash Gaming larger"><img src="images/My Logo Design.png" alt="Bright green gaming logo design with bold colorful typography" loading="lazy"></button></div>
+                <h3 class="art-card-title">Splash Gaming</h3>
+                <p class="art-card-label mb-0">Logo design</p>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="An exploration of shape and form that distills a visual identity into a compact, memorable symbol." aria-label="View Symbol study larger"><img src="images/Logo Symbol.png" alt="A graphic logo symbol design" loading="lazy"></button></div>
+                <h3 class="art-card-title">Symbol study</h3>
+                <p class="art-card-label mb-0">Identity design</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="work-section" id="meme" aria-labelledby="meme-heading">
+          <div class="section-heading">
+            <h2 id="meme-heading">Meme</h2>
+            <p>03 / Internet humor, remixed</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="A playful collage that combines familiar internet imagery into a new visual joke." aria-label="View Meme mash-up 01 larger"><img src="images/MemeMashUp1.jpg" alt="A playful image mashup made from internet meme imagery" loading="lazy"></button></div>
+                <h3 class="art-card-title">Meme mash-up 01</h3>
+                <p class="art-card-label mb-0">Digital collage</p>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="A second internet-inspired collage, remixing its source imagery for an unexpected and humorous result." aria-label="View Meme mash-up 02 larger"><img src="images/MemeMashUp2.jpg" alt="A second playful image mashup made from internet meme imagery" loading="lazy"></button></div>
+                <h3 class="art-card-title">Meme mash-up 02</h3>
+                <p class="art-card-label mb-0">Digital collage</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="work-section" id="3d-work" aria-labelledby="3d-heading">
+          <div class="section-heading">
+            <h2 id="3d-heading">3D Work</h2>
+            <p>04 / Spaces built from scratch</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="A compact 3D workspace arranged for gaming, with a desk setup brought together through carefully placed objects and lighting." aria-label="View Gaming office larger"><img src="images/GamingOffice3D.png" alt="A stylized 3D gaming office with a desk, chair, monitor, and lamp" loading="lazy"></button></div>
+                <h3 class="art-card-title">Gaming office</h3>
+                <p class="art-card-label mb-0">3D environment</p>
+              </article>
+            </div>
+              <div class="row g-4">
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="A virtual gaming room imagined as a digital environment, using bright green light to give the space a surreal atmosphere." aria-label="View Space reality larger"><img src="images/New Art City - Art-74 Space Reality Gaming Setup.jpg" alt="A virtual gaming room with a computer, chair, and bright green lighting" loading="lazy"></button></div>
+                <h3 class="art-card-title">Space reality</h3>
+                <p class="art-card-label mb-0">Virtual environment</p>
+                <a class="art-card-link" href="https://newart.city/show/art-74-space-reality-space-1" target="_blank" rel="noopener noreferrer">View virtual space ↗</a>
+              </article>
+              </div>
+              <div class="row g-4">
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="A 3D print was imagined design using a machine, it takes every hour to create an 3D object." aria-label="View 3D print larger"><img src="images/SpongeBobMemePantsCrazy.jpeg" alt="A 3D print of SpongeBob made into a meme" loading="lazy"></button></div>
+                <h3 class="art-card-title">SpongeBob Meme</h3>
+                <p class="art-card-label mb-0">3D print</p>
+              </article>
+          </div>
+        </section>
+
+        <section class="work-section mb-0" id="net-art" aria-labelledby="net-art-heading">
+          <div class="section-heading">
+            <h2 id="net-art-heading">Net-Art</h2>
+            <p>05 / A world inside the screen</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="A familiar game character becomes part of a title-screen-inspired digital scene, blending nostalgia with a playful online world." aria-label="View The title screen larger"><img src="images/Screenshot of the Title Mario.png" alt="A colorful digital artwork featuring Mario" loading="lazy"></button></div>
+                <h3 class="art-card-title">Mario in the title screen</h3>
+                <p class="art-card-label mb-0">Digital experiment</p>
+                <a class="art-card-link" href="https://brandontran-art74.github.io/VirtualRetroGameStore/" target="_blank" rel="noopener noreferrer">View project ↗</a>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="A small encounter in a colorful digital world, staged like a moment from an imagined game." aria-label="View Meeting Kirby larger"><img src="images/Screenshot of Meeting Kirby.png" alt="A digital scene of Kirby meeting another character" loading="lazy"></button></div>
+                <h3 class="art-card-title">Meeting Kirby</h3>
+                <p class="art-card-label mb-0">Digital world</p>
+                <a class="art-card-link" href="https://brandontran-art74.github.io/VirtualRetroGameStore/introduction.html" target="_blank" rel="noopener noreferrer">View project ↗</a>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="Luigi reaches the edge of a game-like digital landscape, framing an ending as another place to explore." aria-label="View Luigi at the end larger"><img src="images/Screenshot of Luigi at The End.png" alt="A digital scene showing Luigi at the end of a game-like world" loading="lazy"></button></div>
+                <h3 class="art-card-title">Luigi at the end</h3>
+                <p class="art-card-label mb-0">Digital world</p>
+                <a class="art-card-link" href="https://brandontran-art74.github.io/VirtualRetroGameStore/theend.html" target="_blank" rel="noopener noreferrer">View project ↗</a>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="Kirby moves through a bright digital environment, giving this scene the feel of a snapshot from an interactive world. It guides you for exploration inside for touring." aria-label="View Kirby walking larger"><img src="images/Screenshot of Kirby Walking.png" alt="Kirby walking through a colorful digital environment" loading="lazy"></button></div>
+                <h3 class="art-card-title">Kirby Walking</h3>
+                <p class="art-card-label mb-0">Digital world</p>
+                <a class="art-card-link" href="https://brandontran-art74.github.io/VirtualRetroGameStore/inside.html" target="_blank" rel="noopener noreferrer">View project ↗</a>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="art-card">
+                <div class="art-image-frame"><button class="art-image-button" type="button" data-bs-toggle="modal" data-bs-target="#imageLightbox" data-description="A quiet pause in the digital world, with Kirby sitting amid the scene's colorful surroundings. It can be watching around the store for depending on a preview." aria-label="View Kirby sitting larger"><img src="images/Screenshot of Kirby Sitting.png" alt="Kirby sitting in a colorful digital environment" loading="lazy"></button></div>
+                <h3 class="art-card-title">Kirby Sitting</h3>
+                <p class="art-card-label mb-0">Digital world</p>
+                <a class="art-card-link" href="https://brandontran-art74.github.io/VirtualRetroGameStore/history.html" target="_blank" rel="noopener noreferrer">View project ↗</a>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="about-section" id="about" aria-labelledby="about-heading">
+        <div class="container">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-5">
+              <p class="eyebrow">A little about the artist</p>
+              <h2 class="about-title" id="about-heading">Hello,<br>internet.</h2>
+            </div>
+            <div class="col-lg-7 pt-lg-5">
+              <p class="about-copy">I’m the artist behind Art-74. I like exploring how images, identity, humor, and digital spaces can collide. This portfolio brings together experiments in glitch art, logo design, meme culture, 3D environments, and net-art.</p>
+              <p class="about-copy mb-0">Take a look around, follow a visual thread, and see where the pixels lead.</p>
+              <p class="about-note mb-0">Thanks for stopping by <span aria-hidden="true">✳</span></p>
+              <a class="d-inline-block mt-4 fw-bold text-dark" href="about.html">More about me <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2">
+        <span>© <span id="year">2026</span> Brandon TranArt-74</span>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <div class="modal fade image-lightbox" id="imageLightbox" tabindex="-1" aria-labelledby="imageLightboxCaption" aria-describedby="imageLightboxDescription" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-header border-0 pb-0">
+            <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close image"></button>
+          </div>
+          <div class="modal-body pt-2">
+            <img id="lightboxImage" src="" alt="">
+            <p class="modal-caption mb-0" id="imageLightboxCaption"></p>
+            <p class="modal-description mb-0" id="imageLightboxDescription"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      const imageLightbox = document.getElementById("imageLightbox");
+      imageLightbox.addEventListener("show.bs.modal", (event) => {
+        const trigger = event.relatedTarget;
+        const image = trigger.querySelector("img");
+        const title = trigger.closest(".art-card")?.querySelector(".art-card-title")?.textContent
+          || image.alt;
+
+        document.getElementById("lightboxImage").src = image.src;
+        document.getElementById("lightboxImage").alt = image.alt;
+        document.getElementById("imageLightboxCaption").textContent = title;
+        document.getElementById("imageLightboxDescription").textContent = trigger.dataset.description;
+      });
+    </script>
+  </body>
+</html>
